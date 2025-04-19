@@ -1,4 +1,4 @@
-FROM node:20-slim
+FROM node:23-alpine3.21
 
 
 # Install dependencies needed for building TypeScript and working with node modules
