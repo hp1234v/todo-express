@@ -8,8 +8,9 @@
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker-build": "docker build -t node-todo-app .",
-    "docker-run": "docker run -it -p 9000:3000 node-todo-app",
+    "docker-run": "docker run -it -p 3000:3000 node-todo-app",
     "docker-compose": "docker compose down -v && docker compose up --build",
+    "docker-compose-db": "docker compose -f docker-compose.db.yml down -v && docker compose -f docker-compose.db.yml up",
     "build": "tsc"
   },
   "keywords": [],

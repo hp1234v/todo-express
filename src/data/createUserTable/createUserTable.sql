@@ -21,5 +21,4 @@ CREATE TABLE IF NOT EXISTS todo.users
 
 TABLESPACE pg_default;
 
-ALTER TABLE IF EXISTS todo.users
-    OWNER to postgres;
+ALTER TABLE IF EXISTS todo.users OWNER to postgres;
