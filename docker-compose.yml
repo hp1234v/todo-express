@@ -20,10 +20,10 @@ services:
       - "9000:3000"
     environment:
       PORT: 3000
-      DB_HOST: localhost
+      DB_HOST: db
       DB_USER: postgres
       DB_PASSWORD: postgres
-      DB_NAME: mydb
+      DB_NAME: todo
       DB_PORT: 5432
     depends_on:
       - db

@@ -27,5 +27,8 @@ RUN npm run build
 # Expose the port your app will run on
 EXPOSE 3000
 
+COPY wait-for-it.sh /wait-for-it.sh
+RUN chmod +x /wait-for-it.sh
+
 # Start the application with ts-node directly
-CMD ["node", "dist/index.js"]
+CMD ["sh", "./wait-for-it.sh", "my-postgres", "5432", "--", "node", "dist/index.js"]
