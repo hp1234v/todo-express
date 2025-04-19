@@ -1,5 +1,5 @@
-# Use Node.js with Alpine
-FROM node:20-alpine
+FROM node:20-slim
+
 
 # Install dependencies needed for building TypeScript and working with node modules
 # RUN apk add --no-cache \

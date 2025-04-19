@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch './**/*.ts' --exec 'node --loader ts-node/esm' src/app.ts",
-    "docker-build": "docker build -t node-application .",
-    "docker-run": "docker run -it -p 9000:3000 node-application",
+    "docker-build": "docker build -t node-todo-app .",
+    "docker-run": "docker run -it -p 9000:3000 node-todo-app",
     "start": "ts-node src/app.ts",
     "build": "tsc"
   },
