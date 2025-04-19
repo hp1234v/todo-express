@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "docker-build": "docker build -t node-todo-app .",
     "docker-run": "docker run -it -p 9000:3000 node-todo-app",
+    "docker-compose": "docker compose up --build",
     "build": "tsc"
   },
   "keywords": [],
