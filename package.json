@@ -1,0 +1,27 @@
+{
+  "name": "todo-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch './**/*.ts' --exec 'node --loader ts-node/esm' src/app.ts",
+    "docker-build": "docker build -t node-application .",
+    "docker-run": "docker run -it -p 9000:3000 node-application",
+    "start": "ts-node src/app.ts",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
