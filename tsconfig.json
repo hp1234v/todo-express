@@ -1,14 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2020",                  // Or ESNext
-    "module": "NodeNext",                // Must match resolution style
-    "moduleResolution": "NodeNext",      // Important for ESM projects
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "target": "ES6",
+    "module": "commonjs",
+    "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
