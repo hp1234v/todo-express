@@ -1,15 +1,17 @@
-import { Pool } from 'pg';
+import pkg from 'pg';
+import dotenv from "dotenv";
 
-const poolObject = {
-    user: 'postgres',
-    host: 'localhost',
-    database: 'todo',
-    password: 'postgres',
-    port: 5432
-}
+dotenv.config();
 
-const pool = new Pool(poolObject);
+const { Pool } = pkg;
 
+const pool = new Pool({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    password: process.env.DB_PASSWORD,
+    port: Number(process.env.DB_PORT)
+});
 
 pool.on("connect", () => {
     console.log("Connection pool established with database");
