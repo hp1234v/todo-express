@@ -16,6 +16,7 @@ const createDataBase = async () => {
     await addTodoStatus();
     console.log();
     await createTodosTable();
+    console.log();
 }
 
 

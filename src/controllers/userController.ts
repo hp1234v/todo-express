@@ -57,11 +57,14 @@ export const updateUserByid = async (req: any, res: any, next: any) => {
 export const deleteUserById = async (req: any, res: any, next: any) => {
     const { id } = req.params;
     try {
+        if ( id == 1) {
+            return handleResponse(res, 403, "Cannot deleted admin");
+        }
         const deletedUser = await deleteUserService(id);
         if(! deletedUser) {
             return handleResponse(res, 404, "User not found", deletedUser);
         }
-        handleResponse(res, 201, "User deleted successfully", deletedUser);
+        handleResponse(res, 200, "User deleted successfully", deletedUser);
     } catch (err) {
         next(err);
     }
