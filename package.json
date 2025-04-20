@@ -1,12 +1,11 @@
 {
   "name": "todo",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a TODO wit dockerised by the APP and DB in one container",
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "docker-build": "docker build -t node-todo-app .",
     "docker-run": "docker run -it -p 3000:3000 node-todo-app",
     "docker-compose": "docker compose down -v && docker compose up --build",
