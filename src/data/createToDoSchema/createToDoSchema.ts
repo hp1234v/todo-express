@@ -4,9 +4,9 @@ const createToDoSchema = async () => {
     const query = `CREATE SCHEMA IF NOT EXISTS todo`;
     try {
         await pool.query(query, []);
-        console.log(`Schema created successfully`);
+        console.log(`Todo schema created successfully`);
     } catch (err) {
-        console.log(`Schema creation failed`);
+        console.log(`Todo schema creation failed`);
     }
 }
 
