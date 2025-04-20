@@ -19,21 +19,28 @@ const createTodoIdSeq = async () => {
 const createTodosTable = async () => {
     try {
         await createTodoIdSeq()
-        const query = `CREATE TABLE IF NOT EXISTS todo.todos
-                            (
-                                id integer NOT NULL DEFAULT nextval('todo.todos_id_seq'::regclass),
-                                name character varying(100) COLLATE pg_catalog."default" NOT NULL,
-                                decription text COLLATE pg_catalog."default",
-                                due_on timestamp without time zone NOT NULL,
-                                created_on timestamp without time zone NOT NULL,
-                                created_by numeric NOT NULL,
-                                CONSTRAINT fk_user FOREIGN KEY (id)
-                                    REFERENCES todo.users (id) MATCH SIMPLE
-                                    ON UPDATE NO ACTION
-                                    ON DELETE NO ACTION
-                            )
+        const query = `
+CREATE TABLE IF NOT EXISTS todo.todos
+(
+    todo_id integer NOT NULL DEFAULT nextval('todo.todos_id_seq'::regclass),
+    todo_name character varying(100) COLLATE pg_catalog."default" NOT NULL,
+    description text COLLATE pg_catalog."default",
+    due_on timestamp without time zone,
+    created_on timestamp without time zone NOT NULL DEFAULT now(),
+    created_by integer NOT NULL,
+    status integer NOT NULL DEFAULT 1,
+    CONSTRAINT todos_pkey PRIMARY KEY (todo_id),
+    CONSTRAINT todos_created_by_fkey FOREIGN KEY (created_by)
+        REFERENCES todo.users (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT todos_status_fkey FOREIGN KEY (status)
+        REFERENCES todo.todo_status (todo_status_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
 
-                            TABLESPACE pg_default`;
+TABLESPACE pg_default`;
         await pool.query(query, []);
         console.log(`Todos Table created successfully`);
     } catch (err) {

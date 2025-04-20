@@ -1,4 +1,4 @@
-import { createUserService, deleteUserService, getAllUsersService, getUserByIdService, updateUserService } from "../models/userModel";
+import { createUserService, deleteUserService, getAllUsersService, getUserByIdService, updateUserService } from "../models/user/userModel";
 
 const handleResponse =  (res: any, status: any, message: any, data: any = null)=>{
     res.status(status).json({

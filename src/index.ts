@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import userRoutes from './routes/userRoutes';
 import errorHandler from './middlewares/errorHandler';
-import createdDB from './data';
+import createDB from './data';
+import todoRoutes from './routes/todoRoutes';
 
 dotenv.config();
 
@@ -15,15 +16,14 @@ app.use(express.json());
 app.use(cors());
 
 // Data Setup
-createdDB();
+createDB();
 
 // Routes
 app.use("/api", userRoutes);
+app.use("/api", todoRoutes);
 
 // Error handlers
 app.use(errorHandler);
 
 // Server running
-app.listen(port, () =>{
-    console.log(`Listening on port ${port}`);
-});
+app.listen(port, () => console.log(`Listening on port ${port}`));
