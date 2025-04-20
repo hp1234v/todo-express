@@ -18,9 +18,8 @@ const createUserIdSeq = async () => {
 
 const createUsersTable = async () => {
     try {
-        setTimeout(async () => {
-            await createUserIdSeq()
-            const query = `CREATE TABLE IF NOT EXISTS todo.users
+        await createUserIdSeq()
+        const query = `CREATE TABLE IF NOT EXISTS todo.users
             (
                 id integer NOT NULL DEFAULT nextval('todo.users_id_seq'::regclass),
                 name character varying(100) COLLATE pg_catalog."default" NOT NULL,
@@ -31,11 +30,10 @@ const createUsersTable = async () => {
             )
 
             TABLESPACE pg_default`;
-            await pool.query(query, []);
-            console.log(`User Table created successfully`);
-        }, 2000)
+        await pool.query(query, []);
+        console.log(`Users Table created successfully`);
     } catch (err) {
-        console.log(`User Table creation failed`);
+        console.log(`Users Table creation failed`);
     }
 };
 

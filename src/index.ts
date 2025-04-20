@@ -4,8 +4,7 @@ import cors from 'cors';
 import { pool } from './configs/db';
 import userRoutes from './routes/userRoutes';
 import errorHandler from './middlewares/errorHandler';
-import createToDoSchema from './data/createToDoSchema/createToDoSchema';
-import createUsersTable from './data/createUserTable/createUserTable';
+import createdDB from './data';
 
 dotenv.config();
 
@@ -17,8 +16,7 @@ app.use(express.json());
 app.use(cors());
 
 // Data Setup
-createToDoSchema();
-createUsersTable();
+createdDB()
 
 // Routes
 app.use("/api", userRoutes);
