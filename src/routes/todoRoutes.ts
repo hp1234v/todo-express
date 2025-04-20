@@ -3,7 +3,7 @@ import { createTodo, deleteTodoById, getAllTodos, getTodoById, updateTodoByid } 
 
 const todoRoutes = express.Router();
 
-todoRoutes.post("/createTodo", createTodo)
+todoRoutes.post("/todo", createTodo)
 todoRoutes.get("/todos", getAllTodos)
 todoRoutes.get("/todo/:id", getTodoById)
 todoRoutes.put("/todo/:id", updateTodoByid)

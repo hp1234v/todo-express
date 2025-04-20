@@ -48,7 +48,7 @@ export const updateUserByid = async (req: any, res: any, next: any) => {
         if(! updatedUser) {
             return handleResponse(res, 404, "User not found", updatedUser);
         }
-        handleResponse(res, 201, "User updated successfully", updatedUser);
+        handleResponse(res, 200, "User updated successfully", updatedUser);
     } catch (err) {
         next(err);
     }

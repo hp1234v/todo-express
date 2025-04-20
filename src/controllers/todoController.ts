@@ -9,9 +9,9 @@ const handleResponse =  (res: any, status: any, message: any, data: any = null)=
 }
 
 export const createTodo = async (req: any, res: any, next: any) => {
-    const { name, email } = req.body;
+    const { name, createdBy, description, status, dueDate } = req.body;
     try {
-        const newTodo = await createTodoService(name, email);
+        const newTodo = await createTodoService(name, Number(createdBy), description, status, dueDate);
         handleResponse(res, 201, "Todo created successfully", newTodo);
     } catch (err) {
         next(err);
@@ -30,25 +30,25 @@ export const getAllTodos = async (req: any, res: any, next: any) => {
 export const getTodoById = async (req: any, res: any, next: any) => {
     const { id } = req.params;
     try {
-        const Todo = await getTodoByIdService(id);
-        if(! Todo) {
-            return handleResponse(res, 404, "Todo not found", Todo);
+        const todo = await getTodoByIdService(id);
+        if(todo?.length === 0) {
+            return handleResponse(res, 404, "Todo not found", todo);
         }
-        handleResponse(res, 200, "Todo fetched successfully", Todo);
+        handleResponse(res, 200, "Todo fetched successfully", todo);
     } catch (err) {
         next(err);
     }
 }
 
 export const updateTodoByid = async (req: any, res: any, next: any) => {
-    const { name, email } = req.body;
+    const { name, createdBy, description, status, dueDate } = req.body;
     const { id } = req.params
     try {
-        const updatedTodo = await updateTodoService(id, name, email);
+        const updatedTodo = await updateTodoService(id, name, createdBy, description, status, dueDate);
         if(! updatedTodo) {
             return handleResponse(res, 404, "Todo not found", updatedTodo);
         }
-        handleResponse(res, 201, "Todo updated successfully", updatedTodo);
+        handleResponse(res, 200, "Todo updated successfully", updatedTodo);
     } catch (err) {
         next(err);
     }
@@ -61,7 +61,7 @@ export const deleteTodoById = async (req: any, res: any, next: any) => {
         if(! deletedTodo) {
             return handleResponse(res, 404, "Todo not found", deletedTodo);
         }
-        handleResponse(res, 201, "Todo deleted successfully", deletedTodo);
+        handleResponse(res, 200, "Todo deleted successfully", deletedTodo);
     } catch (err) {
         next(err);
     }
