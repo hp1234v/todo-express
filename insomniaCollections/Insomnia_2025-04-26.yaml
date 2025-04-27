@@ -1,0 +1,292 @@
+type: collection.insomnia.rest/5.0
+name: Scratch Pad
+meta:
+  id: wrk_scratchpad
+  created: 1745063946940
+  modified: 1745063946940
+collection:
+  - name: Todo app
+    meta:
+      id: fld_194a9633980844d98820971209c7caad
+      created: 1745119497332
+      modified: 1745119497332
+      sortKey: -1745119497332
+    children:
+      - name: User
+        meta:
+          id: fld_f603b55befc144438e6794a143a79d2a
+          created: 1745063978408
+          modified: 1745119512927
+          sortKey: -1745119512881
+        children:
+          - url: http://localhost:3000/api/users
+            name: getUsers
+            meta:
+              id: req_d71aae7cead04715b4781ea8b189e1fa
+              created: 1745063987644
+              modified: 1745073090994
+              isPrivate: false
+              sortKey: -1745063987644
+            method: GET
+            parameters:
+              - id: pair_9dfe1246bb66445f8887f17856c66b69
+                disabled: false
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/createUser
+            name: createUser
+            meta:
+              id: req_cb903efaf7c74282aa5a10482f412c5e
+              created: 1745064230400
+              modified: 1745119654307
+              isPrivate: false
+              sortKey: -1745064230400
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name": "Mrutyaun",
+                	"email": "mrutyzun@gmail.com"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/user/1
+            name: getUser
+            meta:
+              id: req_6c880e3c0a5b46d391b07bebdad23edb
+              created: 1745064397713
+              modified: 1745064424768
+              isPrivate: false
+              sortKey: -1745064397713
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/user/5
+            name: updateUser
+            meta:
+              id: req_d708eb47d76f45afa4353516ccab2017
+              created: 1745064430527
+              modified: 1745072689500
+              isPrivate: false
+              sortKey: -1745064430527
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name": "nn",
+                	"email": "mrutyunjayan1gmail.com"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/user/1
+            name: deleteUser
+            meta:
+              id: req_18647d3bfa674b3abd9bba5868010a95
+              created: 1745064462834
+              modified: 1745073136501
+              isPrivate: false
+              sortKey: -1745064430627
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+      - name: Todo
+        meta:
+          id: fld_900c67e8aa2e49009eba09c553ec2df6
+          created: 1745119531085
+          modified: 1745119534178
+          sortKey: -1745119512981
+        children:
+          - url: http://localhost:3000/api/todo
+            name: createTodo
+            meta:
+              id: req_479221f92aee4e51b50e20ca76e341ad
+              created: 1745131888427
+              modified: 1745158849611
+              isPrivate: false
+              sortKey: -1745131888427
+            method: POST
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name": "test name",
+                	"description": "test description",
+                	"createdBy": 1,
+                	"status": "ACTIVE",
+                	"dueDate": "01-05-2025"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/todo/5
+            name: deleteTodoById
+            meta:
+              id: req_3ad9330fd1d34ceabcf4f87d175a2238
+              created: 1745132849013
+              modified: 1745140254991
+              isPrivate: false
+              sortKey: -1745132849013
+            method: DELETE
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/todo/5
+            name: updateTodoById
+            meta:
+              id: req_75c01184b76e414aa37f01f166ae2b18
+              created: 1745132883697
+              modified: 1745140246402
+              isPrivate: false
+              sortKey: -1745132883697
+            method: PUT
+            body:
+              mimeType: application/json
+              text: |-
+                {
+                	"name": "test name",
+                	"decription": "test description",
+                	"createdBy": "1",
+                	"status": "ACTIVE",
+                	"dueDate": "01-05-2025"
+                }
+            headers:
+              - name: Content-Type
+                value: application/json
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/todo/5
+            name: getTodoById
+            meta:
+              id: req_5f6c685e48d54a74b187a62190a09f8c
+              created: 1745132898167
+              modified: 1745140234068
+              isPrivate: false
+              sortKey: -1745132898167
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+          - url: http://localhost:3000/api/todos
+            name: getAllTodos
+            meta:
+              id: req_261b486fb8df4abd82eaa91434b81afb
+              created: 1745132918491
+              modified: 1745132943883
+              isPrivate: false
+              sortKey: -1745132918491
+            method: GET
+            headers:
+              - name: User-Agent
+                value: insomnia/11.0.2
+            settings:
+              renderRequestBody: true
+              encodeUrl: true
+              followRedirects: global
+              cookies:
+                send: true
+                store: true
+              rebuildPath: true
+  - name: Go Crud
+    meta:
+      id: fld_690eba1dc2bf4e2795c5223d402ec736
+      created: 1745649235960
+      modified: 1745649239914
+      sortKey: -1745119497432
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1745063963863
+    modified: 1745063963863
+environments:
+  name: Base Environment
+  meta:
+    id: env_99d30891da4bdcebc63947a8fc17f076de878684
+    created: 1745063963805
+    modified: 1745063963805
+    isPrivate: false
